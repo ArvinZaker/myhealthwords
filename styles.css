@@ -1,0 +1,190 @@
+:root {
+  color: #202124;
+  background: #fff;
+  font: 16px/1.5 system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  box-sizing: border-box;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 15vh 1.25rem 3rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.intro {
+  margin-top: .25rem;
+  color: #5f6368;
+}
+
+label {
+  display: block;
+  margin: 2rem 0 .4rem;
+  font-weight: 600;
+}
+
+.search-row {
+  display: flex;
+  gap: .5rem;
+}
+
+input,
+button {
+  box-sizing: border-box;
+  min-height: 3rem;
+  border: 1px solid #c7c9cc;
+  border-radius: .4rem;
+  font: inherit;
+}
+
+input {
+  width: 100%;
+  padding: 0 .8rem;
+}
+
+button {
+  padding: 0 1rem;
+  color: #fff;
+  background: #2457a6;
+  border-color: #2457a6;
+  cursor: pointer;
+}
+
+.empty-state,
+.no-results {
+  margin-top: 2rem;
+  color: #5f6368;
+}
+
+.card {
+  position: relative;
+  margin-top: 2rem;
+  padding: 1.25rem;
+  border: 1px solid #dfe1e5;
+  border-radius: .6rem;
+  box-shadow: 0 1px 3px #00000012;
+}
+
+.card h2 {
+  margin-top: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+}
+
+.tag {
+  padding: .2rem .55rem;
+  color: #5f4300;
+  background: #ffe08a;
+  border: 1px solid #d2a900;
+  border-radius: 999px;
+  font-size: .85rem;
+}
+
+.term {
+  padding-top: 1.5rem;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: start;
+}
+
+.english-term {
+  margin: .25rem 0 1.25rem;
+  font-size: clamp(2rem, 6vw, 3rem);
+  font-weight: 700;
+  line-height: 1.25;
+  text-align: start;
+}
+
+.card p:not(.english-term),
+.card li {
+  font-size: 1.05rem;
+}
+
+.card-list {
+  min-height: 1.5rem;
+}
+
+.question-box {
+  display: grid;
+  margin-top: .5rem;
+  padding: 1rem;
+  border: 1px solid #c9d7ea;
+  border-radius: .5rem;
+  background: #f5f8fc;
+}
+
+.question-row {
+  padding: .9rem;
+  margin-bottom: .75rem;
+  border: 1px solid #c9d7ea;
+  border-radius: .4rem;
+  background: #fff;
+}
+
+.question-row:last-child {
+  margin-bottom: 0;
+}
+
+.question-row strong {
+  display: block;
+  margin-bottom: .35rem;
+  font-size: 1rem;
+}
+
+.question-row > div {
+  line-height: 1.5;
+}
+
+.question-original {
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.question-english {
+  margin-top: .35rem;
+  color: #5f6368;
+  font-size: .95rem;
+}
+
+.card h3 {
+  margin-bottom: .25rem;
+  font-size: 1rem;
+}
+
+.card ul {
+  margin-top: .25rem;
+}
+
+@media (max-width: 480px) {
+  .search-row {
+    display: block;
+  }
+
+  button {
+    width: 100%;
+    margin-top: .5rem;
+  }
+
+  .question-box {
+    padding: .75rem;
+  }
+
+  .question-row {
+    padding: .75rem;
+  }
+}
