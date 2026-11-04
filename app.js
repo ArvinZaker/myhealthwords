@@ -35,6 +35,18 @@ function showCard(entry) {
     </article>`;
 }
 
+document.querySelector('#browse-all').addEventListener('click', async () => {
+  const entries = await loadEntries();
+  results.innerHTML = entries.map(showCard).join('');
+});
+
+document.querySelector('#feeling-lucky').addEventListener('click', async () => {
+  const entries = await loadEntries();
+  results.innerHTML = entries.length
+    ? showCard(entries[Math.floor(Math.random() * entries.length)])
+    : '';
+});
+
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
   const query = input.value.trim();
