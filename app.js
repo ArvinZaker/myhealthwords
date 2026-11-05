@@ -2,9 +2,15 @@ const results = document.querySelector('#results');
 const form = document.querySelector('#search-form');
 const input = document.querySelector('#search-input');
 
+let database;
 async function loadEntries() {
+  if (database) return database;
   const response = await fetch('entries.json?v=4', { cache: 'no-store' });
-  return response.json();
+  const curated = await response.json();
+  const manifest = await fetch('fallbacks.json', { cache: 'no-store' }).then(response => response.json());
+  const fallbacks = await Promise.all(manifest.map(path => fetch(path).then(response => response.json())));
+  database = curated.concat(...fallbacks);
+  return database;
 }
 
 function showCard(entry) {
@@ -35,9 +41,24 @@ function showCard(entry) {
     </article>`;
 }
 
+function renderEntries(entries) {
+  results.innerHTML = '';
+  let offset = 0;
+  const more = document.createElement('button');
+  more.textContent = 'Show more';
+  function append() {
+    more.remove();
+    results.insertAdjacentHTML('beforeend', entries.slice(offset, offset + 50).map(showCard).join(''));
+    offset += 50;
+    if (offset < entries.length) results.append(more);
+  }
+  more.addEventListener('click', append);
+  append();
+}
+
 document.querySelector('#browse-all').addEventListener('click', async () => {
   const entries = await loadEntries();
-  results.innerHTML = entries.map(showCard).join('');
+  renderEntries(entries);
 });
 
 document.querySelector('#feeling-lucky').addEventListener('click', async () => {
@@ -60,20 +81,31 @@ form.addEventListener('submit', async (event) => {
 
   const normalize = (value) => value.trim().toLocaleLowerCase();
   const normalizedQuery = normalize(query);
-  const exactMatches = entries.filter((entry) => [
+  function findMatches(records) {
+  const exactMatches = records.filter((entry) => [
     entry.original_phrase,
+    ...(entry.aliases || []),
+    entry.possible_english_term,
+    ...entry.other_terms,
     entry.transliteration,
     entry.literal_translation
   ].some((value) => value && normalize(value) === normalizedQuery));
-  const fuse = new Fuse(entries, {
-    keys: ['original_phrase', 'transliteration', 'literal_translation', 'possible_english_term', 'other_terms'],
+  if (exactMatches.length) return exactMatches;
+  const fuse = new Fuse(records, {
+    keys: ['original_phrase', 'aliases', 'transliteration', 'literal_translation', 'possible_english_term', 'other_terms'],
     includeScore: true,
     threshold: 0.25,
     ignoreLocation: true
   });
-  const matches = (exactMatches.length ? exactMatches : fuse.search(query)
+  return fuse.search(query)
     .filter(({ score }) => score <= 0.25)
-    .map(({ item }) => item))
+    .map(({ item }) => item);
+  }
+  const curatedMatches = findMatches(entries.filter(entry => entry.source === 'MyHealthWord'));
+  const candidates = curatedMatches.length
+    ? curatedMatches
+    : findMatches(entries.filter(entry => entry.source !== 'MyHealthWord'));
+  const matches = candidates
     .filter((item, index, items) => items.findIndex((candidate) => (
       candidate.original_phrase === item.original_phrase
       && candidate.possible_english_term === item.possible_english_term

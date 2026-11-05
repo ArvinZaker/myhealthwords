@@ -1,9 +1,10 @@
 [
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "اسهال",
-    "transliteration": "eshāl",
+    "aliases": [],
+    "transliteration": "",
     "possible_english_term": "diarrhea",
     "other_terms": [
       "loose stools",
@@ -21,15 +22,18 @@
       "Is there blood, fever, or severe pain?",
       "Can you keep fluids down?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Follow-up wording requires clinical review."
   },
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "سردی",
+    "aliases": [],
     "transliteration": "",
     "possible_english_term": "feeling cold / coldness",
     "other_terms": [
@@ -46,16 +50,19 @@
       "Do you have a fever?",
       "When did it start?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Context-dependent expression; clinician and community review needed."
   },
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "گز گز",
-    "transliteration": "gaz gaz",
+    "aliases": [],
+    "transliteration": "",
     "possible_english_term": "tingling / pins and needles",
     "other_terms": [
       "prickling",
@@ -71,16 +78,19 @@
       "Where is the tingling?",
       "Is it always there or does it come and go?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Colloquial expression; clinician and community review needed."
   },
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "بی‌حسی",
-    "transliteration": "bi-hessi",
+    "aliases": [],
+    "transliteration": "",
     "possible_english_term": "numbness",
     "other_terms": [
       "loss of sensation",
@@ -96,15 +106,18 @@
       "Did it start suddenly?",
       "Do you have weakness or trouble speaking?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Needs context about location, onset, and associated weakness or pain."
   },
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "خناق",
+    "aliases": [],
     "transliteration": "",
     "possible_english_term": "throat tightness / choking sensation",
     "other_terms": [
@@ -121,16 +134,19 @@
       "Do you have throat pain or swelling?",
       "When did it start?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Meaning varies by context; clinician and community review needed."
   },
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "زردی",
-    "transliteration": "zardi",
+    "aliases": [],
+    "transliteration": "",
     "possible_english_term": "jaundice / yellowing",
     "other_terms": [
       "yellow skin",
@@ -146,16 +162,19 @@
       "Is your urine darker than usual?",
       "When did it start?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Needs clarification about skin or eye colour and onset."
   },
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "سفیدک",
-    "transliteration": "sefidak",
+    "aliases": [],
+    "transliteration": "",
     "possible_english_term": "white patches / thrush",
     "other_terms": [
       "oral white patches",
@@ -171,16 +190,19 @@
       "Do they come off when wiped?",
       "Are they painful?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Location and appearance require review."
   },
   {
-    "source": "Manual draft",
-    "language": "Persian",
+    "source": "MyHealthWord",
+    "language": "Farsi",
     "original_phrase": "قرمز",
-    "transliteration": "ghermez",
+    "aliases": [],
+    "transliteration": "",
     "possible_english_term": "redness",
     "other_terms": [
       "erythema",
@@ -196,1059 +218,11 @@
       "Is there itching, pain, swelling, or warmth?",
       "When did it start?"
     ],
+    "creator": "",
+    "reviewer": "",
     "tags": [
       "unreviewed"
     ],
     "review_note": "Descriptive word; body location is required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "أدوية بلا وصفة",
-    "transliteration": "",
-    "possible_english_term": "over-the-counter medication",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "أكسجة الأغشية خارج الجسم",
-    "transliteration": "",
-    "possible_english_term": "extracorporeal membrane oxygenation",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "أكسجة غشائية خارج الجسم",
-    "transliteration": "",
-    "possible_english_term": "ECMO",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "ألم عضلات",
-    "transliteration": "",
-    "possible_english_term": "muscle pain",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "إسهال",
-    "transliteration": "",
-    "possible_english_term": "diarrhea",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "إشاعة",
-    "transliteration": "",
-    "possible_english_term": "rumour",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "إصابة رئوية حادة",
-    "transliteration": "",
-    "possible_english_term": "acute lung injury",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "إغلاق مدارس",
-    "transliteration": "",
-    "possible_english_term": "school closure",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "إنتان",
-    "transliteration": "",
-    "possible_english_term": "sepsis",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "إنزيم",
-    "transliteration": "",
-    "possible_english_term": "enzyme",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "إنفلونزا",
-    "transliteration": "",
-    "possible_english_term": "flu",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "اختبار التنفس التلقائي",
-    "transliteration": "",
-    "possible_english_term": "spontaneous breathing trial",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "استجابة",
-    "transliteration": "",
-    "possible_english_term": "response",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "استخدام مرة واحدة",
-    "transliteration": "",
-    "possible_english_term": "single use",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "استقصاء مصلي",
-    "transliteration": "",
-    "possible_english_term": "serological survey",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الأشخاص الأكبر سناً",
-    "transliteration": "",
-    "possible_english_term": "older people",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الأعراض",
-    "transliteration": "",
-    "possible_english_term": "symptom",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الأنفلونزا",
-    "transliteration": "",
-    "possible_english_term": "influenza",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الإبلاغ عن المخاطر",
-    "transliteration": "",
-    "possible_english_term": "risk communication",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الإغلاق",
-    "transliteration": "",
-    "possible_english_term": "lockdown",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الاستعداد",
-    "transliteration": "الجاهزية / التأهب",
-    "possible_english_term": "preparedness",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الالتهاب الرئوي المكتسب من جهاز التهوية",
-    "transliteration": "",
-    "possible_english_term": "ventilator-acquired pneumonia",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "الانتشار",
-    "transliteration": "",
-    "possible_english_term": "spread",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "التباعد الاجتماعي",
-    "transliteration": "",
-    "possible_english_term": "social distancing",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Arabic",
-    "original_phrase": "التباعد الجسدي",
-    "transliteration": "",
-    "possible_english_term": "physical distancing",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "affection préexistante",
-    "transliteration": "maladie préexistante",
-    "possible_english_term": "preexisting condition",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "affections sous-jacentes",
-    "transliteration": "",
-    "possible_english_term": "underlying health condition",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "alvéoles",
-    "transliteration": "alvéoles pulmonaires",
-    "possible_english_term": "alveoli",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "antibactérien",
-    "transliteration": "",
-    "possible_english_term": "antibacterial",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "antibiotiques",
-    "transliteration": "antibactériens",
-    "possible_english_term": "antibiotic",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "antimicrobien",
-    "transliteration": "",
-    "possible_english_term": "antimicrobial",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "antirétroviral",
-    "transliteration": "médicaments antirétroviraux",
-    "possible_english_term": "antiretroviral drugs",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "Antécédent de voyage",
-    "transliteration": "Qui a voyagé",
-    "possible_english_term": "travel history",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "aplatir la courbe",
-    "transliteration": "",
-    "possible_english_term": "flatten the curve",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "appareils de protection respiratoire motorisés",
-    "transliteration": "",
-    "possible_english_term": "Powered Air-Purifying Respirator",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "asymptomatique",
-    "transliteration": "",
-    "possible_english_term": "asymptomatic",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "Atteinte pulmonaire aigüe",
-    "transliteration": "Lésion pulmonaire aigüe",
-    "possible_english_term": "acute lung injury",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "auto-quarantaine",
-    "transliteration": "quarantaine volontaire",
-    "possible_english_term": "self-quarantine",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "canule",
-    "transliteration": "",
-    "possible_english_term": "cannula",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "Capacité de mobilisation",
-    "transliteration": "Capacité d'intensification",
-    "possible_english_term": "surge capacity",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "cas",
-    "transliteration": "",
-    "possible_english_term": "case",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "cas confirmé",
-    "transliteration": "cas avéré",
-    "possible_english_term": "confirmed case",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "cas présumé",
-    "transliteration": "cas suspect",
-    "possible_english_term": "suspect case",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "CDC",
-    "transliteration": "",
-    "possible_english_term": "CDC",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "centre de soins",
-    "transliteration": "centre de traitement",
-    "possible_english_term": "treatment centre",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "Centres pour le contrôle et la prévention des maladies",
-    "transliteration": "Centers for Disease Control and Prevention (Centres pour le contrôle et la prévention des maladies)",
-    "possible_english_term": "Centers for Disease Control and Prevention",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "clinique",
-    "transliteration": "essai clinique",
-    "possible_english_term": "clinical",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "Communication des risques",
-    "transliteration": "",
-    "possible_english_term": "risk communication",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "confinement",
-    "transliteration": "",
-    "possible_english_term": "lockdown",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "French",
-    "original_phrase": "contact",
-    "transliteration": "",
-    "possible_english_term": "contact",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "(tasa de) morbilidad",
-    "transliteration": "",
-    "possible_english_term": "morbidity rate",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "(tasa de) mortalidad",
-    "transliteration": "tasa de letalidad",
-    "possible_english_term": "case fatality rate",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "(tasa de) mortalidad",
-    "transliteration": "",
-    "possible_english_term": "fatality rate",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "(tasa de) mortalidad",
-    "transliteration": "(tasa de) mortandad",
-    "possible_english_term": "mortality rate",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "afección preexistente",
-    "transliteration": "condición preexistente, enfermedad preexistente",
-    "possible_english_term": "preexisting condition",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "aislamiento",
-    "transliteration": "",
-    "possible_english_term": "isolation",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "aislamiento de personas vulnerables",
-    "transliteration": "",
-    "possible_english_term": "shielding",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "alveolos",
-    "transliteration": "alveolos pulmonares, alvéolos",
-    "possible_english_term": "alveoli",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "antibacteriano",
-    "transliteration": "",
-    "possible_english_term": "antibacterial",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "antibiótico",
-    "transliteration": "",
-    "possible_english_term": "antibiotic",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "antimicrobiano",
-    "transliteration": "",
-    "possible_english_term": "antimicrobial",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "antirretrovirales",
-    "transliteration": "fármacos antirretrovirales, medicamentos antirretrovirales",
-    "possible_english_term": "antiretroviral drugs",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "aparato respiratorio",
-    "transliteration": "vías respiratorias",
-    "possible_english_term": "respiratory tract",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "aplanar la curva",
-    "transliteration": "",
-    "possible_english_term": "flatten the curve",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "asintomático",
-    "transliteration": "",
-    "possible_english_term": "asymptomatic",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "asistencia médica",
-    "transliteration": "",
-    "possible_english_term": "medical care",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "atención primaria",
-    "transliteration": "",
-    "possible_english_term": "primary care",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "atención sanitaria",
-    "transliteration": "asistencia sanitaria",
-    "possible_english_term": "healthcare",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "autocuarentena",
-    "transliteration": "autoaislamiento",
-    "possible_english_term": "self-quarantine",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "brote",
-    "transliteration": "",
-    "possible_english_term": "outbreak",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "capacidad de reacción",
-    "transliteration": "capacidad de respuesta",
-    "possible_english_term": "surge capacity",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "caso",
-    "transliteration": "",
-    "possible_english_term": "case",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "caso confirmado",
-    "transliteration": "",
-    "possible_english_term": "confirmed case",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "CDC",
-    "transliteration": "",
-    "possible_english_term": "CDC",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
-  },
-  {
-    "source": "TWB COVID-19 glossary",
-    "language": "Spanish",
-    "original_phrase": "centro asistencial",
-    "transliteration": "centro de asistencia, residencia de ancianos",
-    "possible_english_term": "care home",
-    "other_terms": [],
-    "follow_up_questions_original": [],
-    "follow_up_questions": [],
-    "tags": [
-      "TWB fallback"
-    ],
-    "review_note": "Imported from TWB glossary; clinician review required."
   }
 ]

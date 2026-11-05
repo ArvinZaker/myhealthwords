@@ -25,9 +25,22 @@ def read_sheet(archive, sheet_path):
     rows = []
     for row in root.findall("main:sheetData/main:row", NS):
         values = []
+        shared = []
+        if 'xl/sharedStrings.xml' in archive.namelist():
+            shared = [''.join(item.itertext()) for item in ElementTree.fromstring(archive.read('xl/sharedStrings.xml'))]
         for cell in row.findall("main:c", NS):
-            text = cell.find("main:is/main:t", NS)
-            values.append(text.text if text is not None and text.text else "")
+            reference = re.match(r'[A-Z]+', cell.get('r', ''))
+            if reference:
+                column = 0
+                for letter in reference[0]:
+                    column = column * 26 + ord(letter) - 64
+                while len(values) < column - 1:
+                    values.append('')
+            if cell.get('t') == 's':
+                value = shared[int(cell.find('main:v', NS).text)]
+            else:
+                value = ''.join(t.text or '' for t in cell.findall('.//main:t', NS))
+            values.append(value)
         rows.append(values)
     return rows
 
@@ -57,18 +70,33 @@ def main():
                 row = dict(zip(headers, values))
                 if not row.get("Original phrase", "").strip():
                     continue
+                terms = split_values(row.get('Possible terms', ''))
+                question_columns = sorted(
+                    (key for key in headers if re.fullmatch(r'Q\d+', key)),
+                    key=lambda key: int(key[1:]),
+                )
+                pairs = []
+                for key in question_columns:
+                    value = row.get(key, '').strip()
+                    if value:
+                        parts = re.split(r'[;\n|]', value, maxsplit=1)
+                        pairs.append((parts[0].strip(), parts[1].strip() if len(parts) > 1 else ''))
+                phrases = [p.strip() for p in re.split(r'[;|\n]+', row['Original phrase']) if p.strip()]
                 entries.append(
                     {
-                        "source": row.get("Source", "").strip(),
+                        "source": "MyHealthWord",
                         "language": language,
-                        "original_phrase": row["Original phrase"].strip(),
+                        "original_phrase": phrases[0],
+                        "aliases": phrases[1:],
                         "transliteration": row.get("Transliteration", "").strip(),
-                        "possible_english_term": row.get("Possible English term", "").strip(),
-                        "other_terms": split_values(row.get("Other possible terms", "")),
-                        "follow_up_questions_original": split_values(row.get("Follow-up questions (original language)", "")),
-                        "follow_up_questions": split_values(row.get("Follow-up questions (English)", "")),
-                        "tags": split_values(row.get("Tag", "")),
-                        "review_note": row.get("Review note", "").strip(),
+                        "possible_english_term": terms[0] if terms else '',
+                        "other_terms": terms[1:],
+                        "follow_up_questions_original": [p[0].strip() for p in pairs],
+                        "follow_up_questions": [p[1] for p in pairs],
+                        "creator": row.get('Creator', '').strip(),
+                        "reviewer": row.get('Reviewer', '').strip(),
+                        "tags": [] if row.get('Reviewer', '').strip() else ['unreviewed'],
+                        "review_note": row.get("Note", "").strip(),
                     }
                 )
 
