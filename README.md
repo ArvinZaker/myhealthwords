@@ -14,6 +14,8 @@ For a recognized English term, Search first asks which language you want. Type a
 
 Search checks the project's curated entries first. When it finds no match there, it searches the fallback terminology sources. Cards identify fallback sources and unreviewed project entries. Some records contain only terminology, so alternative terms or follow-up questions may be empty.
 
+Curated searches download only the small project-entry file. Loading the full fallback collection currently requires about 156 MB, so the site asks before downloading it. Fallback loading and searching run in a background worker to keep the page responsive. Browse all starts with project entries and offers access to the fallbacks; the random-card button also asks before loading the full collection.
+
 The current project-written samples are in Persian. Language coverage varies by source; a multilingual database does not contain every term in every language. The project-written sample interpretations and questions are drafts awaiting clinical and language review. Search results help describe a concern and do not establish a diagnosis.
 
 ## Terminology sources

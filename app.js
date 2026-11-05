@@ -47,17 +47,20 @@ languageInput.addEventListener('keydown', event => {
 });
 
 let database;
+let curatedLoad;
 async function loadEntries() {
   if (database) return database;
-  const response = await fetch('entries.json?v=4', { cache: 'no-store' });
-  const curated = await response.json();
-  const manifest = await fetch('fallbacks.json', { cache: 'no-store' }).then(response => response.json());
-  const fallbacks = await Promise.all(manifest.map(async path => {
-    const data = await fetch(path).then(response => response.json());
-    return Array.isArray(data) ? data : data.entries.map(entry => ({ ...data.defaults, ...entry }));
-  }));
-  database = curated.concat(...fallbacks);
-  const languages = [...new Set(database.map(entry => entry.language))]
+  curatedLoad ||= fetch('entries.json?v=4').then(response => {
+    if (!response.ok) throw new Error('Could not load project entries.');
+    return response.json();
+  }).catch(error => { curatedLoad = undefined; throw error; });
+  database = await curatedLoad;
+  updateLanguages(database.map(entry => entry.language));
+  return database;
+}
+
+function updateLanguages(available) {
+  const languages = [...new Set(available)]
     .filter(language => languageName(language) !== 'English');
   const suggestions = [...new Set(languages.flatMap(language =>
     [languageName(language), ...languageAliases(language)]))].sort();
@@ -66,7 +69,64 @@ async function loadEntries() {
     option.value = name;
     return option;
   }));
-  return database;
+}
+
+let fallbackWorker;
+let fallbackApproved = false;
+let requestNumber = 0;
+let revision = 0;
+const requests = new Map();
+
+input.addEventListener('input', () => { revision += 1; });
+languageInput.addEventListener('input', () => { revision += 1; });
+
+function fallbackRequest(action, options = {}) {
+  if (!fallbackWorker) {
+    fallbackWorker = new Worker('search-worker.js?v=1');
+    fallbackWorker.onmessage = ({ data }) => {
+      const request = requests.get(data.id);
+      if (!request) return;
+      requests.delete(data.id);
+      if (data.error) request.reject(new Error(data.error));
+      else request.resolve(data);
+    };
+    fallbackWorker.onerror = () => {
+      for (const request of requests.values()) request.reject(new Error('Fallback search could not start. Please try again.'));
+      requests.clear();
+      fallbackWorker.terminate();
+      fallbackWorker = undefined;
+    };
+  }
+  return new Promise((resolve, reject) => {
+    const id = ++requestNumber;
+    requests.set(id, { resolve, reject });
+    fallbackWorker.postMessage({ id, action, ...options });
+  });
+}
+
+function offerFallbacks(proceed) {
+  results.innerHTML = '<p>Fallback terminology databases require a large download (about 156 MB).</p>';
+  const button = document.createElement('button');
+  button.type = 'button';
+  button.textContent = 'Load fallback databases';
+  button.addEventListener('click', () => {
+    fallbackApproved = true;
+    proceed();
+  }, { once: true });
+  results.append(button);
+}
+
+async function runFallback(action, options = {}) {
+  const currentRevision = ++revision;
+  results.innerHTML = '<p role="status">Searching terminology databases…</p>';
+  try {
+    const response = await fallbackRequest(action, options);
+    if (currentRevision !== revision) return;
+    updateLanguages(response.languages);
+    return response;
+  } catch (error) {
+    if (currentRevision === revision) results.textContent = error.message;
+  }
 }
 
 function showCard(entry, translated = false) {
@@ -119,23 +179,57 @@ function renderEntries(entries) {
 }
 
 document.querySelector('#browse-all').addEventListener('click', async () => {
+  revision += 1;
   const entries = await loadEntries();
   renderEntries(entries);
+  const more = document.createElement('button');
+  more.textContent = 'Browse fallback databases';
+  more.addEventListener('click', () => browseFallbacks());
+  results.append(more);
 });
 
 document.querySelector('#feeling-lucky').addEventListener('click', async () => {
-  const entries = await loadEntries();
-  results.innerHTML = entries.length
-    ? showCard(entries[Math.floor(Math.random() * entries.length)])
-    : '';
+  if (!fallbackApproved) return offerFallbacks(() => document.querySelector('#feeling-lucky').click());
+  const response = await runFallback('lucky');
+  if (response) results.innerHTML = response.entries.map(entry => showCard(entry)).join('');
 });
+
+async function browseFallbacks(offset = 0) {
+  if (!fallbackApproved) return offerFallbacks(() => browseFallbacks(offset));
+  const response = await runFallback('browse', { offset });
+  if (!response) return;
+  results.innerHTML = response.entries.map(entry => showCard(entry)).join('');
+  if (response.hasMore) {
+    const more = document.createElement('button');
+    more.textContent = 'Show more';
+    more.addEventListener('click', () => browseFallbacks(offset + response.entries.length));
+    results.append(more);
+  }
+}
+
+async function searchFallbacks(query, translationRequested) {
+  if (!fallbackApproved) return offerFallbacks(() => searchFallbacks(query, translationRequested));
+  const response = await runFallback('search', { query, translationRequested, language: languageInput.value });
+  if (!response) return;
+  languagePicker.hidden = !response.translated;
+  if (response.translated && (!translationRequested || !languageInput.value.trim())) {
+    results.innerHTML = '';
+    languageInput.focus();
+  } else {
+    results.innerHTML = response.entries.length
+      ? response.entries.map(entry => showCard(entry, response.translated)).join('')
+      : '<p class="no-results">No matching translation or symptom was found.</p>';
+  }
+}
 
 async function search(event, translationRequested = false) {
   event.preventDefault();
+  const searchRevision = ++revision;
   const query = input.value.trim();
   if (!query) return;
 
   const entries = await loadEntries();
+  if (searchRevision !== revision) return;
   if (!entries.length) {
     results.innerHTML = '';
     return;
@@ -181,8 +275,7 @@ async function search(event, translationRequested = false) {
     const matchingLanguages = new Set([...new Set(entries.map(entry => entry.language))]
       .filter(language => languageAliases(language).includes(selected)));
     if (!matchingLanguages.size || [...matchingLanguages].every(language => languageName(language) === 'English')) {
-      results.innerHTML = '<p class="no-results">No translations are available for that language. Choose a suggested language.</p>';
-      return;
+      return searchFallbacks(query, translationRequested);
     }
     const concepts = new Set(englishMatches.filter(entry => entry.concept_id)
       .map(entry => `${entry.source}:${entry.concept_id}`));
@@ -200,6 +293,7 @@ async function search(event, translationRequested = false) {
     ? curatedMatches
     : translated ? searchable.filter(entry => entry.source !== 'MyHealthWord')
       : findMatches(searchable.filter(entry => entry.source !== 'MyHealthWord'));
+  if (!candidates.length) return searchFallbacks(query, translationRequested);
   const matches = candidates
     .filter((item, index, items) => items.findIndex((candidate) => (
       candidate.original_phrase === item.original_phrase
