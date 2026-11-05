@@ -14,8 +14,14 @@ async function loadEntries() {
 }
 
 function showCard(entry) {
+  const escape = value => String(value || '').replace(/[&<>"']/g, character => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[character]));
+  entry = Object.fromEntries(Object.entries(entry).map(([key, value]) => [key,
+    Array.isArray(value) ? value.map(escape) : escape(value)
+  ]));
   const otherTerms = entry.other_terms.map((term) => `<li>${term}</li>`).join('');
-  const tags = (entry.tags || []).map((tag) => `<span class="tag">${tag}</span>`).join('');
+  const tags = (entry.tags || []).map((tag) => entry.source_url
+    ? `<a class="tag" href="${entry.source_url}" target="_blank" rel="noopener" title="${entry.attribution || entry.source}">${tag}</a>`
+    : `<span class="tag">${tag}</span>`).join('');
   const originalQuestions = entry.follow_up_questions_original || [];
   const englishQuestions = entry.follow_up_questions || [];
   const questionCount = Math.max(originalQuestions.length, englishQuestions.length);
