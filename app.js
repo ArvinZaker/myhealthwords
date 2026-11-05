@@ -52,7 +52,10 @@ async function loadEntries() {
   const response = await fetch('entries.json?v=4', { cache: 'no-store' });
   const curated = await response.json();
   const manifest = await fetch('fallbacks.json', { cache: 'no-store' }).then(response => response.json());
-  const fallbacks = await Promise.all(manifest.map(path => fetch(path).then(response => response.json())));
+  const fallbacks = await Promise.all(manifest.map(async path => {
+    const data = await fetch(path).then(response => response.json());
+    return Array.isArray(data) ? data : data.entries.map(entry => ({ ...data.defaults, ...entry }));
+  }));
   database = curated.concat(...fallbacks);
   const languages = [...new Set(database.map(entry => entry.language))]
     .filter(language => languageName(language) !== 'English');

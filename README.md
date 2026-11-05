@@ -22,8 +22,9 @@ The current project-written samples are in Persian. Language coverage varies by 
 - [MONDO International](https://mondo.monarchinitiative.org/pages/download/): disease names, exact synonyms, and available Japanese labels. MONDO is distributed under CC BY 4.0.
 - [Orphadata Science](https://www.orphadata.com/_alignments/): rare-disease names and synonyms in multiple languages, linked through ORPHAcodes. Orphadata Science: Free access data from Orphanet. © INSERM 1999. Used under CC BY 4.0 and converted to search records. Source dates are retained in the JSON records. [Reuse terms](https://www.orphadata.com/faq/).
 - [MedlinePlus.gov](https://medlineplus.gov/xml.html), US National Library of Medicine: English and Spanish health-topic names and alternative names, linked through the source's equivalent-topic records and converted to search records.
+- [Human Phenotype Ontology (HPO)](https://obophenotype.github.io/human-phenotype-ontology/): this product uses HPO International, version 2026-09-01, from the Human Phenotype Ontology Consortium. The fallback retains source labels and exact synonyms in every language available in that release, linked to English by HP identifier. HPO does not supply follow-up questions. [HPO project citation](https://doi.org/10.1093/nar/gkt1026) and [reuse terms](https://human-phenotype-ontology.github.io/license.html).
 
-These sources retain their respective rights and terms. Their inclusion does not imply endorsement of MyHealthWord. HPO, DeCS, NSW Health glossary content, and SNOMED CT are not included in the current website database.
+These sources retain their respective rights and terms. Their inclusion does not imply endorsement of MyHealthWord. DeCS, NSW Health glossary content, and SNOMED CT are not included in the current website database.
 
 ## Running and hosting
 
@@ -37,4 +38,4 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
-The public repository contains the website HTML, CSS, JavaScript, and JSON databases. `entries.json` holds the project entries; `fallbacks.json` lists one JSON file per fallback database: TWB, MONDO, Orphadata, and MedlinePlus. Local downloads are grouped by database under `data/` and remain private, along with source workbooks, regeneration scripts, and working notes.
+The public repository contains the website HTML, CSS, JavaScript, and JSON databases. `entries.json` holds the project entries; `fallbacks.json` lists one JSON file per fallback database: TWB, MONDO, Orphadata, MedlinePlus, and HPO. Shared HPO source information is stored once in its JSON and applied when loaded. Local downloads are grouped by database under `data/` and remain private, along with source workbooks, regeneration scripts, and working notes.
