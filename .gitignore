@@ -1,3 +1,12 @@
-data/
-__pycache__/
-/REQUIREMENTS.md
+/*
+!/.gitignore
+!/README.md
+!/index.html
+!/styles.css
+!/app.js
+!/entries.json
+!/fallbacks.json
+!/fallback-twb-*.json
+!/fallback-mondo-*.json
+!/fallback-orphadata-*.json
+!/fallback-medlineplus-*.json
