@@ -5,6 +5,7 @@ import json
 import sys
 from collections import defaultdict, Counter
 from pathlib import Path
+from xml.etree import ElementTree
 from import_twb_bundle import load_glossary, convert
 
 BASE = Path('/home/arvin/2TBstorage/gitarchive/databases/DEFINITIONS')
@@ -48,6 +49,7 @@ def snomed():
 
 def mondo():
     path = BASE / 'mondo/2026-10-06/mondo.obo'
+    english = {}
     for block in path.read_text().split('[Term]')[1:]:
         values = defaultdict(list)
         for line in block.splitlines():
@@ -62,7 +64,22 @@ def mondo():
             term, end = decoder.raw_decode(value)
             if value[end:].lstrip().startswith('EXACT'):
                 synonyms.append(term)
+        english[values['id'][0]] = values['name'][0]
         yield card('MONDO', values['id'][0], values['name'][0], list(dict.fromkeys(synonyms)))
+    international = path.with_name('mondo-international.owl')
+    for event, element in ElementTree.iterparse(international, events=['end']):
+        if element.tag != '{http://www.w3.org/2002/07/owl#}Class':
+            continue
+        uri = element.get('{http://www.w3.org/1999/02/22-rdf-syntax-ns#}about', '')
+        concept = uri.rsplit('/', 1)[-1].replace('MONDO_', 'MONDO:')
+        if concept in english:
+            for label in element.findall('{http://www.w3.org/2000/01/rdf-schema#}label'):
+                language = label.get('{http://www.w3.org/XML/1998/namespace}lang')
+                if language and language != 'en' and label.text:
+                    row = card('MONDO', concept, label.text, [], language)
+                    row['possible_english_term'] = english[concept]
+                    yield row
+        element.clear()
 
 
 def main():
