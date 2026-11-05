@@ -1,15 +1,12 @@
 #!/usr/bin/env python3
 """Build complete terminology fallbacks from the supplied local releases."""
-import csv
 import json
-import sys
 from collections import defaultdict, Counter
 from pathlib import Path
 from xml.etree import ElementTree
 from import_twb_bundle import load_glossary, convert
 
 BASE = Path('/home/arvin/2TBstorage/gitarchive/databases/DEFINITIONS')
-csv.field_size_limit(sys.maxsize)
 
 
 def card(source, concept, term, synonyms, language='English'):
@@ -17,34 +14,6 @@ def card(source, concept, term, synonyms, language='English'):
                 original_phrase=term, possible_english_term=term,
                 other_terms=synonyms, follow_up_questions_original=[],
                 follow_up_questions=[], tags=[source + ' fallback'])
-
-
-def snomed():
-    concepts = {}
-    descriptions = defaultdict(dict)
-    for edition in ['snomed_ct_int', 'snomed_ct_us']:
-        folder = BASE / edition / 'Snapshot' / 'Terminology'
-        for path in sorted(folder.glob('sct2_Concept_Snapshot*.txt')):
-            with path.open() as stream:
-                for row in csv.DictReader(stream, delimiter='\t'):
-                    old = concepts.get(row['id'])
-                    if old is None or row['effectiveTime'] > old['effectiveTime']:
-                        concepts[row['id']] = row
-        for path in sorted(folder.glob('sct2_Description_Snapshot*.txt')):
-            with path.open() as stream:
-                for row in csv.DictReader(stream, delimiter='\t'):
-                    old = descriptions[row['conceptId']].get(row['id'])
-                    if old is None or row['effectiveTime'] > old['effectiveTime']:
-                        descriptions[row['conceptId']][row['id']] = row
-    for concept, rows in descriptions.items():
-        if concepts.get(concept, {}).get('active') != '1':
-            continue
-        active = [r for r in rows.values() if r['active'] == '1']
-        synonyms = list(dict.fromkeys(r['term'] for r in active if r['typeId'] == '900000000000013009'))
-        names = [r['term'] for r in active if r['typeId'] == '900000000000003001']
-        terms = list(dict.fromkeys(synonyms + names))
-        if terms:
-            yield card('SNOMED CT', concept, terms[0], terms[1:])
 
 
 def mondo():
@@ -87,7 +56,7 @@ def main():
     for row in records:
         row['tags'] = ['TWB fallback']
         row['follow_up_questions_original'] = []
-    sources = [('twb', records), ('snomed', snomed()), ('mondo', mondo())]
+    sources = [('twb', records), ('mondo', mondo())]
     manifest = []
     counts = Counter()
     for name, rows in sources:
