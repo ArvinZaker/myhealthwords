@@ -35,4 +35,4 @@ python3 -m http.server 8000
 
 Then open http://localhost:8000.
 
-The public repository contains the website HTML, CSS, JavaScript, and JSON databases. `entries.json` holds the project entries; `fallbacks.json` lists the fallback JSON files. Local source workbooks, downloads, regeneration scripts, and project working notes are excluded from the public repository.
+The public repository contains the website HTML, CSS, JavaScript, and JSON databases. `entries.json` holds the project entries; `fallbacks.json` lists one JSON file per fallback database: TWB, MONDO, Orphadata, and MedlinePlus. Local downloads are grouped by database under `data/` and remain private, along with source workbooks, regeneration scripts, and working notes.
