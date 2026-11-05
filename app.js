@@ -85,7 +85,7 @@ languageInput.addEventListener('input', () => { revision += 1; });
 
 function fallbackRequest(action, options = {}) {
   if (!fallbackWorker) {
-    fallbackWorker = new Worker('search-worker.js?v=2');
+    fallbackWorker = new Worker('search-worker.js?v=3');
     fallbackWorker.onmessage = ({ data }) => {
       const request = requests.get(data.id);
       if (!request) return;

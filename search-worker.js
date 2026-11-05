@@ -27,8 +27,9 @@ async function load() {
 
 function connection(source) {
   if(!connections.has(source.url)) {
-    const promise=createDbWorker([{from:'inline',config:{serverMode:'full',requestChunkSize:4096,
-      url:new URL(source.url,self.location.href).href,cacheBust:source.version}}],
+    const promise=createDbWorker([{from:'inline',config:{serverMode:'chunked',requestChunkSize:4096,
+      urlPrefix:new URL(source.url,self.location.href).href+'?v='+source.version+'&part=',
+      serverChunkSize:source.bytes,databaseLengthBytes:source.bytes,suffixLength:1}}],
       new URL('vendor/sqlite.worker.js',self.location.href).href,
       new URL('vendor/sql-wasm.wasm',self.location.href).href)
       .catch(error=>{connections.delete(source.url);throw error;});
