@@ -55,7 +55,11 @@ async function loadEntries() {
     return response.json();
   }).catch(error => { curatedLoad = undefined; throw error; });
   database = await curatedLoad;
-  updateLanguages(database.map(entry => entry.language));
+  const catalogue = await fetch('catalogue.json', {cache: 'no-cache'}).then(response => {
+    if (!response.ok) throw new Error('Could not load available languages.');
+    return response.json();
+  });
+  updateLanguages(database.map(entry => entry.language).concat(catalogue.flatMap(source => source.languages)));
   return database;
 }
 
@@ -72,7 +76,6 @@ function updateLanguages(available) {
 }
 
 let fallbackWorker;
-let fallbackApproved = false;
 let requestNumber = 0;
 let revision = 0;
 const requests = new Map();
@@ -102,18 +105,6 @@ function fallbackRequest(action, options = {}) {
     requests.set(id, { resolve, reject });
     fallbackWorker.postMessage({ id, action, ...options });
   });
-}
-
-function offerFallbacks(proceed) {
-  results.innerHTML = '<p>Fallback terminology databases require a large download (about 156 MB).</p>';
-  const button = document.createElement('button');
-  button.type = 'button';
-  button.textContent = 'Load fallback databases';
-  button.addEventListener('click', () => {
-    fallbackApproved = true;
-    proceed();
-  }, { once: true });
-  results.append(button);
 }
 
 async function runFallback(action, options = {}) {
@@ -189,13 +180,11 @@ document.querySelector('#browse-all').addEventListener('click', async () => {
 });
 
 document.querySelector('#feeling-lucky').addEventListener('click', async () => {
-  if (!fallbackApproved) return offerFallbacks(() => document.querySelector('#feeling-lucky').click());
   const response = await runFallback('lucky');
   if (response) results.innerHTML = response.entries.map(entry => showCard(entry)).join('');
 });
 
 async function browseFallbacks(offset = 0) {
-  if (!fallbackApproved) return offerFallbacks(() => browseFallbacks(offset));
   const response = await runFallback('browse', { offset });
   if (!response) return;
   results.innerHTML = response.entries.map(entry => showCard(entry)).join('');
@@ -208,7 +197,6 @@ async function browseFallbacks(offset = 0) {
 }
 
 async function searchFallbacks(query, translationRequested) {
-  if (!fallbackApproved) return offerFallbacks(() => searchFallbacks(query, translationRequested));
   const response = await runFallback('search', { query, translationRequested, language: languageInput.value });
   if (!response) return;
   languagePicker.hidden = !response.translated;

@@ -5,10 +5,7 @@
 !/styles.css
 !/app.js
 !/search-worker.js
+!/catalogue.json
+!/fallback-*.sqlite
+!/vendor/
 !/entries.json
-!/fallbacks.json
-!/fallback-twb.json
-!/fallback-mondo.json
-!/fallback-orphadata.json
-!/fallback-medlineplus.json
-!/fallback-hpo.json

@@ -14,7 +14,7 @@ For a recognized English term, Search first asks which language you want. Type a
 
 Search checks the project's curated entries first. When it finds no match there, it searches the fallback terminology sources. Cards identify fallback sources and unreviewed project entries. Some records contain only terminology, so alternative terms or follow-up questions may be empty.
 
-Curated searches download only the small project-entry file. Loading the full fallback collection currently requires about 156 MB, so the site asks before downloading it. Fallback loading and searching run in a background worker to keep the page responsive. Browse all starts with project entries and offers access to the fallbacks; the random-card button also asks before loading the full collection.
+Curated searches download only the small project-entry file. Fallback searches use indexed SQLite databases and fetch only the database pages needed for a query. Searching runs in background workers. There is no download-consent screen. Browse all starts with project entries and offers access to the fallbacks.
 
 The current project-written samples are in Persian. Language coverage varies by source; a multilingual database does not contain every term in every language. The project-written sample interpretations and questions are drafts awaiting clinical and language review. Search results help describe a concern and do not establish a diagnosis.
 
@@ -32,12 +32,14 @@ These sources retain their respective rights and terms. Their inclusion does not
 
 This is a static website that runs on GitHub Pages. It has no patient login, dashboard, or server database. Search uses [Fuse.js](https://www.fusejs.io/), loaded from a CDN.
 
-To preview a checkout locally, run:
+In the local development workspace, preview with:
 
 ```bash
-python3 -m http.server 8000
+python3 serve.py
 ```
 
-Then open http://localhost:8000.
+Then open http://localhost:8766. The local preview script supports the byte-range requests required by the SQLite reader. It remains a local development tool; GitHub Pages serves the published website.
 
-The public repository contains the website HTML, CSS, JavaScript, and JSON databases. `entries.json` holds the project entries; `fallbacks.json` lists one JSON file per fallback database: TWB, MONDO, Orphadata, MedlinePlus, and HPO. Shared HPO source information is stored once in its JSON and applied when loaded. Local downloads are grouped by database under `data/` and remain private, along with source workbooks, regeneration scripts, and working notes.
+The public repository contains website files, the small `entries.json`, `catalogue.json`, one indexed SQLite file per fallback source, and the SQLite browser runtime. Fallback JSON exports are local build inputs and are not fetched by the website. Original downloads, workbooks and build scripts remain local and ignored. The SQLite reader is [sql.js-httpvfs](https://github.com/phiresky/sql.js-httpvfs), distributed with its Apache 2.0 licence in `vendor/`.
+
+Curated entries retain fuzzy matching. Fallback lookup uses indexed exact terms and word-prefix completion, followed by Fuse ranking of those candidates; it no longer performs an exhaustive fuzzy scan of every fallback entry.
