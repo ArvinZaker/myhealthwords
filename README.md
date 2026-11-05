@@ -2,6 +2,8 @@
 
 MyHealthWord helps people describe symptoms across languages during a medical appointment. Search for a phrase in your own words to see possible English terms and, where available, follow-up questions in the original language with an English translation.
 
+The follow-up questions are designed to be short, clear, and easy to answer for patients who use English as an additional language, including people learning English or more comfortable discussing their health in another language. Each question appears in the original language with an English translation underneath, so patients and clinicians can follow the same conversation. The aim is to help people share their experiences in familiar words, without needing medical vocabulary or fluent English.
+
 [Open MyHealthWord](https://arvinzaker.github.io/myhealthwords/)
 
 ## Using the website
