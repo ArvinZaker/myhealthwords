@@ -1,6 +1,1 @@
-[
-  "fallback-twb.json",
-  "fallback-mondo.json",
-  "fallback-orphadata.json",
-  "fallback-medlineplus.json"
-]
+["fallback-twb.json","fallback-mondo.json","fallback-orphadata.json","fallback-medlineplus.json"]
