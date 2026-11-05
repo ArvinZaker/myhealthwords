@@ -17,6 +17,13 @@
           <input id="search-input" type="search" placeholder="Type a symptom" autocomplete="off" autofocus>
           <button type="submit">Search</button>
         </div>
+        <div id="language-picker" hidden>
+          <label for="target-language">Which language would you like?</label>
+          <input id="target-language" type="text" list="language-options" placeholder="Start typing a language" autocomplete="off" aria-describedby="language-help">
+          <datalist id="language-options"></datalist>
+          <p id="language-help">Choose a language, then select Translate.</p>
+          <button id="translate-button" type="button">Translate</button>
+        </div>
       </form>
 
       <div class="browse-actions">
@@ -28,6 +35,6 @@
     </main>
 
     <script src="https://cdn.jsdelivr.net/npm/fuse.js@7.0.0"></script>
-    <script src="app.js?v=6"></script>
+    <script src="app.js?v=7"></script>
   </body>
 </html>

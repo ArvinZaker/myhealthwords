@@ -10,6 +10,8 @@ The follow-up questions are designed to be short, clear, and easy to answer for 
 
 Type a symptom or phrase and select **Search**. **Browse all** lets you explore the records, and **I'm feeling lucky** opens a random card.
 
+For a recognized English term, Search first asks which language you want. Type a language or choose an autocomplete suggestion, then select **Translate** or press Enter in the language field. Translation cards appear only after that step and use the stored terminology; unavailable translations are identified without inventing an answer.
+
 Search checks the project's curated entries first. When it finds no match there, it searches the fallback terminology sources. Cards identify fallback sources and unreviewed project entries. Some records contain only terminology, so alternative terms or follow-up questions may be empty.
 
 The current project-written samples are in Persian. Language coverage varies by source; a multilingual database does not contain every term in every language. The project-written sample interpretations and questions are drafts awaiting clinical and language review. Search results help describe a concern and do not establish a diagnosis.
