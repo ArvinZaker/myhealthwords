@@ -52,11 +52,12 @@ async function cards(source,rows) {
 
 async function search({query:text,language,translationRequested}) {
   const term=normalize(text);
-  const english=await Promise.all(catalogue.map(source=>query(source,
-    'SELECT entry FROM terms WHERE term=? AND english=1 LIMIT 1',[term])));
-  const translated=english.some(rows=>rows.length);
+  const exact=await Promise.all(catalogue.map(source=>query(source,`SELECT t.english,e.payload
+    FROM terms t JOIN entries e ON e.id=t.entry WHERE t.term=?
+    ORDER BY t.english DESC,e.id LIMIT 5`,[term])));
+  const translated=exact.some(rows=>rows.some(row=>row.english));
   if(translated&&(!translationRequested||!language.trim()))return {entries:[],translated};
-  const groups=await Promise.all(catalogue.map(async source=>{
+  const groups=await Promise.all(catalogue.map(async(source,index)=>{
     if(translated) {
       const selected=source.languages.filter(value=>matchesLanguage(value,normalize(language)));
       if(!selected.length)return [];
@@ -70,9 +71,7 @@ async function search({query:text,language,translationRequested}) {
           AND target.language IN (${placeholders})) ORDER BY e.id LIMIT 5`,[term,...selected,term,...selected]);
       return cards(source,rows);
     }
-    const rows=await query(source,`SELECT e.payload FROM terms t JOIN entries e ON e.id=t.entry
-      WHERE t.term=? ORDER BY e.id LIMIT 5`,[term]);
-    return cards(source,rows);
+    return cards(source,exact[index]);
   }));
   let entries=[].concat(...groups);
   if(!translated&&!entries.length) {
